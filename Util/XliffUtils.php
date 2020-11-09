@@ -65,10 +65,8 @@ class XliffUtils
         
         $isValid = @$dom->schemaValidateSource(self::getSchema($xliffVersion));
         if (!$isValid) {
-            if (\LIBXML_VERSION < 20900) {
-                libxml_disable_entity_loader($disableEntities);
-            }
-
+            libxml_disable_entity_loader($disableEntities);
+            
             return self::getXmlErrors($internalErrors);
         }
 
